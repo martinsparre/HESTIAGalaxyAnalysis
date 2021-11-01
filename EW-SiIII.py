@@ -66,6 +66,7 @@ plt.text(ThisAtom.Line_Wavelength+0.5,0.5,'EW=%4.4f Å'%EW)
 plt.ylim((0.0,1.01))
 plt.xlabel('Wavelength [Å]')
 plt.ylabel('Normalized flux')
+plt.savefig('EW_SiIII1206.pdf')
 plt.show()
 
 if FluxArray[0]<0.99:
@@ -137,5 +138,6 @@ plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='red',label='10
 plt.legend(loc=4)
 plt.grid()
 plt.xlabel(r'$\log N_{\rm Si III}$ (cm$^{-2}$)')
-plt.ylabel('EW Si III 1206 (Å)')
+plt.ylabel('log EW Si III 1206 (Å)')
+plt.savefig('CurveOfGrowth_SiIII1206.pdf')
 plt.show()
