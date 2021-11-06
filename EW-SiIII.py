@@ -83,7 +83,7 @@ LambdaArray = numpy.linspace(ThisAtom.Line_Wavelength-20,ThisAtom.Line_Wavelengt
 
 plt.figure(2)
 #first 1 km/s
-b = 1.0*1e5#cm/s
+b = 5.0*1e5#cm/s
 List_N = 10.0**numpy.linspace(6,18,81)
 List_EW = []
 
@@ -94,7 +94,7 @@ for N in List_N:
     EW = (FluxArray.size*1.0-numpy.sum(FluxArray) ) * (LambdaArray[1]-LambdaArray[0])
     List_EW.append(EW)
 
-plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='black',label='1 km s$^{-1}$')
+plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='black',label='5 km s$^{-1}$')
 
 
 
@@ -105,7 +105,7 @@ for N in List_N:
     EW = (FluxArray.size*1.0-numpy.sum(FluxArray) ) * (LambdaArray[1]-LambdaArray[0])
     List_EW.append(EW)
 
-plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='blue',label='10 km s$^{-1}$')
+plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='royalblue',label='10 km s$^{-1}$')
 
 
 b = 20.0*1e5#cm/s
@@ -115,26 +115,10 @@ for N in List_N:
     EW = (FluxArray.size*1.0-numpy.sum(FluxArray) ) * (LambdaArray[1]-LambdaArray[0])
     List_EW.append(EW)
 
-plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='green',label='20 km s$^{-1}$')
+plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='crimson',label='20 km s$^{-1}$')
 
-#then 60 km/s
-b = 30.0*1e5#cm/s
-List_EW = []
-for N in List_N:
-    FluxArray = Spectra.LineFlux(LambdaArray, ThisAtom.Line_Wavelength, N, b,ThisAtom.Line_f,ThisAtom.Line_gamma,0.0)
-    EW = (FluxArray.size*1.0-numpy.sum(FluxArray) ) * (LambdaArray[1]-LambdaArray[0])
-    List_EW.append(EW)
 
-plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='orange',label='30 km s$^{-1}$')
 
-b = 100.0*1e5#cm/s
-List_EW = []
-for N in List_N:
-    FluxArray = Spectra.LineFlux(LambdaArray, ThisAtom.Line_Wavelength, N, b,ThisAtom.Line_f,ThisAtom.Line_gamma,0.0)
-    EW = (FluxArray.size*1.0-numpy.sum(FluxArray) ) * (LambdaArray[1]-LambdaArray[0])
-    List_EW.append(EW)
-
-plt.plot(numpy.log10(List_N),numpy.log10(List_EW),'-',lw=2,color='red',label='100 km s$^{-1}$')
 plt.legend(loc=4)
 plt.grid()
 plt.xlabel(r'$\log N_{\rm Si III}$ (cm$^{-2}$)')
